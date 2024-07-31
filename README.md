@@ -58,7 +58,7 @@ Outlier Detection: Detect and handle outliers that could skew the analysis.
 - Test group completion rate: 58.52%
 - The Z-Statistic is -22.89, and the P-Value is extremely small (5.39e-116), which is much less than the alpha level of 0.05.
 
-  ![Completion Rate](https://github.com/Josepdmo/PROJECT2/blob/main/Images/Completion%20Rate.png)
+![Completion Rate](https://github.com/Josepdmo/PROJECT2/blob/main/Images/Completion%20Rate.png)
   
 **Interpretation**:
 - Since the P-Value is significantly lower than 0.05, we reject the null hypothesis (H0) and accept the alternative hypothesis (H1).
@@ -72,6 +72,8 @@ Outlier Detection: Detect and handle outliers that could skew the analysis.
 **Results**:
 - Control group completion rate: 49.84%
 - Test group completion rate: 58.52%
+
+![Cost Effectiveness](https://github.com/Josepdmo/PROJECT2/blob/main/Images/Cost%20Effective%205%25%20Threshold.png)
 
 **Interpretation**:
 The increase in completion rate is approximately 8.68% ((58.52 - 49.84) / 49.84 * 100), which exceeds the 5% threshold. However, without a p-value or confidence interval, we can't confirm the statistical significance of this increase.
