@@ -177,9 +177,6 @@ def clean_dataframe(df):
     print("Data types before adjustment:")
     print(df.dtypes)
     
-    # Adjust the data type of 'client_id' to string
-    df["client_id"] = df["client_id"].astype(str)
-    
     # Display the data types of each column after adjustment
     print("Data types after adjustment:")
     print(df.dtypes)
@@ -274,4 +271,98 @@ def import_and_analyze_experiment_clients():
     return df
 
 
+def merge_and_clean_dataframes(df_final_demo, df_merged, df_final_experiment_clients):
+    """
+    This function merges multiple data frames and drops rows with null values in the 'Variation' column.
 
+    Parameters:
+    df_final_demo (pd.DataFrame): The first DataFrame to be merged.
+    df_merged (pd.DataFrame): The second DataFrame to be merged.
+    df_final_experiment_clients (pd.DataFrame): The third DataFrame to be merged.
+
+    Returns:
+    pd.DataFrame: The merged and cleaned DataFrame.
+    """
+    # Merge the data frames
+    new_df = pd.merge(df_final_demo, df_merged, how="left", on="client_id")
+    
+    # Merge with the experiment clients data frame
+    variation_df = pd.merge(new_df, df_final_experiment_clients, on="client_id", how="inner")
+    
+    # Reset index and drop rows with null values in 'Variation' column
+    variation_df.reset_index(drop=True, inplace=True)
+    variation_df.dropna(subset=["Variation"], inplace=True)
+
+    # Adjust the data type of 'client_id' to string
+    variation_df["client_id"] = variation_df["client_id"].astype(str)
+    
+    return variation_df
+
+def get_control_df(variation_df):
+    """
+    This function extracts the control DataFrame from the merged DataFrame based on the 'Variation' column.
+
+    Parameters:
+    variation_df (pd.DataFrame): The DataFrame to be split.
+
+    Returns:
+    pd.DataFrame: The control DataFrame.
+    """
+    # Extract control DataFrame
+    control_df = variation_df[variation_df["Variation"] == "Control"]
+    return control_df
+
+def get_test_df(variation_df):
+    """
+    This function extracts the test DataFrame from the merged DataFrame based on the 'Variation' column.
+
+    Parameters:
+    variation_df (pd.DataFrame): The DataFrame to be split.
+
+    Returns:
+    pd.DataFrame: The test DataFrame.
+    """
+    # Extract test DataFrame
+    test_df = variation_df[variation_df["Variation"] == "Test"]
+    return test_df
+
+def analyze_time_spent(variation_df):
+    """
+    This function analyzes the time spent on each step in the process, calculates the average time spent on each step,
+    and plots the results.
+
+    Parameters:
+    variation_df (pd.DataFrame): The DataFrame containing the process steps and timestamps.
+
+    Returns:
+    pd.DataFrame: A summary DataFrame with the average time spent on each step.
+    """
+    # Convert date_time to datetime format
+    variation_df['date_time'] = pd.to_datetime(variation_df['date_time'])
+    
+    # Sort by visit_id and date_time
+    variation_df = variation_df.sort_values(by=['visit_id', 'date_time'])
+    
+    # Calculate time spent on each step
+    variation_df['time_spent'] = variation_df.groupby('visit_id')['date_time'].diff().dt.total_seconds()
+    
+    # Fill NaN values in time_spent with 0 for the first step
+    variation_df['time_spent'] = variation_df['time_spent'].fillna(0)
+    
+    # Calculate average time spent on each step
+    time_spent_summary = variation_df.groupby('process_step')['time_spent'].mean().reset_index()
+    print("Average Time Spent on Each Step:")
+    print(time_spent_summary)
+    
+    # Plotting the average time spent on each step
+    plt.figure(figsize=(10, 6))
+    sns.barplot(x='process_step', y='time_spent', data=time_spent_summary, palette='viridis')
+    
+    # Adding titles and labels
+    plt.title('Average Time Spent on Each Step')
+    plt.xlabel('Process Step')
+    plt.ylabel('Average Time Spent (seconds)')
+    plt.xticks(rotation=45)
+    plt.show()
+    
+    return time_spent_summary
