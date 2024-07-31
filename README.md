@@ -1,28 +1,23 @@
 # Vanguard Digital Experiment Analysis
 
-This project involves analyzing the results of a digital experiment conducted by Vanguard to determine if a new User Interface (UI) design improves client process completion rates.
 
 ## Table of Contents
 
 1. [Project Brief](#project-brief)
-2. [The Digital Challenge](#the-digital-challenge)
-3. [The Experiment Conducted](#the-experiment-conducted)
-4. [Data Analysis](#data-analysis)
-    - [Importing and Exploring Data](#importing-and-exploring-data)
-5. [Hypotheses](#hypotheses)
+2. [The Experiment Conducted](#the-experiment-conducted)
+3. [Importing and Exploring Data](#importing-and-exploring-data)
+4. [Data Sources](#data-sources)
+5. [Data Preparation & Merging Datasets](#data-preparation-&-merging-datasets)
+6. [Hypotheses](#hypotheses)
     - [Completion Rate Analysis](#completion-rate-analysis)
     - [Error Rates Analysis](#error-rates-analysis)
     - [Session Duration Analysis](#session-duration-analysis)
-6. [Key Findings](#key-findings)
-7. [Conclusion](#conclusion)
+7. [Key Findings](#key-findings)
+8. [Conclusion](#conclusion)
 
 ## Project Brief
 
-You are a newly employed data analyst in the Customer Experience (CX) team at Vanguard, the US-based investment management company. Your first task involves analyzing the results of a digital experiment to determine if a new UI design leads to a better user experience and higher process completion rates.
-
-## The Digital Challenge
-
-Vanguard aimed to improve client experience by introducing a modern UI and in-context prompts. The key question was whether these changes would lead to higher process completion rates among clients.
+This project involves analyzing the results of a digital experiment conducted by Vanguard Investment Management Group to determine if a new User Interface (UI) design improves client process completion rates.The goal is to determine if a new UI design leads to a better user experience and higher process completion rates.
 
 ## The Experiment Conducted
 
@@ -32,9 +27,7 @@ An A/B test was conducted from 3/15/2017 to 6/20/2017 with the following groups:
 
 Both groups followed the same process sequence, including an initial page, three steps, and a confirmation page.
 
-## Data Analysis
-
-### Importing and Exploring Data
+## Importing and Exploring Data
 
 pandas numpy seaborn matplotlib.pyplot scipy.stats
 
