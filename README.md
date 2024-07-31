@@ -92,6 +92,8 @@ The increase in completion rate is approximately 8.68% ((58.52 - 49.84) / 49.84 
 | Step 3  | 38,168.53                | 20,870.51             | -6.23       | 1.000000  |
 | Confirm | 250,213.99               | 266,014.22            | 1.00        | 0.157563  |
 
+![Average Time Spent](https://github.com/Josepdmo/PROJECT2/blob/main/Images/Average%20Time%20-%20Engagement.png)
+
 **Interpretation**:
 - For steps "start", "step_1", "step_2", and "step_3", the new UI resulted in significantly shorter session durations compared to the old UI, supporting the null hypothesis (H0).
 - For the "confirm" step, there was no significant difference in session durations between the new and old UIs.
@@ -106,6 +108,8 @@ The increase in completion rate is approximately 8.68% ((58.52 - 49.84) / 49.84 
 - Control group error rate: 6.77%
 - Test group error rate: 9.19%
 - Chi-Square Test: Chi2 = 625.11, p-value < 0.05
+
+![Error Rates](https://github.com/Josepdmo/PROJECT2/blob/main/Images/Error%20Rates%20-Task%20Efficiency.png)
 
 **Interpretation**:
 The higher error rate in the Test group suggests the new UI leads to more user errors. The Chi-Square test shows a very small p-value, indicating the difference in error rates is statistically significant. Therefore, we reject the null hypothesis, confirming the Test group has higher error rates, suggesting that the new UI is less efficient.
