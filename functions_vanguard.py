@@ -366,3 +366,70 @@ def analyze_time_spent(variation_df):
     plt.show()
     
     return time_spent_summary
+
+def analyze_session_durations(variation_df):
+    """
+    This function calculates session durations for each visit_id, performs a t-test to compare control and test groups,
+    and interprets the results.
+
+    Parameters:
+    variation_df (pd.DataFrame): The DataFrame containing the process steps and timestamps.
+
+    Returns:
+    tuple: A tuple containing the t-statistic and p-value of the t-test.
+    """
+    # Calculate session duration for each visit_id
+    session_durations = variation_df.groupby('visit_id')['time_spent'].sum().reset_index()
+
+    # Merge with the original data to get the Variation labels
+    df_merged = session_durations.merge(variation_df[['visit_id', 'Variation']].drop_duplicates(), on='visit_id')
+
+    # Separate the data into control and test groups
+    control_group = df_merged[df_merged['Variation'] == 'Control']['time_spent']
+    test_group = df_merged[df_merged['Variation'] == 'Test']['time_spent']
+
+    # Perform t-test
+    t_stat, p_value = ttest_ind(test_group, control_group, alternative='greater')
+
+    # Output the results
+    print(f"T-statistic: {t_stat}")
+    print(f"P-value: {p_value}")
+
+    # Interpretation
+    alpha = 0.05
+    if p_value < alpha:
+        print("Reject the null hypothesis. Clients using the new UI have significantly longer session durations.")
+    else:
+        print("Fail to reject the null hypothesis. There is no significant difference in session durations.")
+
+    return t_stat, p_value
+
+def calculate_completion_rate(variation_df):
+    """
+    This function calculates the total number of sessions and the number of sessions that reached the "confirm" step
+    for each group, then calculates the completion rate for each group.
+
+    Parameters:
+    variation_df (pd.DataFrame): The DataFrame containing the process steps and variation labels.
+
+    Returns:
+    pd.DataFrame: A DataFrame containing the total sessions, confirm sessions, and completion rate for each group.
+    """
+    # Total number of sessions for each group
+    total_sessions = variation_df.groupby('Variation')['visit_id'].nunique().reset_index(name='total_sessions')
+
+    # Filter the data to only include rows where process_step is "confirm"
+    confirm_steps = variation_df[variation_df['process_step'] == 'confirm']
+
+    # Count the number of sessions that reached the "confirm" step for each group
+    confirm_sessions = confirm_steps.groupby('Variation')['visit_id'].nunique().reset_index(name='confirm_sessions')
+
+    # Merge total sessions with confirm sessions
+    completion_data = pd.merge(total_sessions, confirm_sessions, on='Variation')
+
+    # Calculate the completion rate
+    completion_data['completion_rate'] = (completion_data['confirm_sessions'] / completion_data['total_sessions']) * 100
+
+    print(completion_data)
+    
+    return completion_data
