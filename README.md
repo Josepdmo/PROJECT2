@@ -13,8 +13,9 @@
     - [Cost-Effectiveness Hypothesis](#cost-effectiveness-hypothesis)
     - [Engagement Hypothesis](#engagement-hypothesis)
     - [Task Efficiency Hypothesis](#task-efficiency-hypothesis)
-7. [Key Findings](#key-findings)
-8. [Conclusion](#conclusion)
+7. [Conclusion](#conclusion)
+8. [Presentation](#presentation)
+9. [Connect With Us](#connect-with-us)
 
 ## Project Brief
 
@@ -118,13 +119,6 @@ We will use three datasets for this analysis:
 **Interpretation**:
 The higher error rate in the Test group suggests the new UI leads to more user errors. The Chi-Square test shows a very small p-value, indicating the difference in error rates is statistically significant. Therefore, we reject the null hypothesis, confirming the Test group has higher error rates, suggesting that the new UI is less efficient.
 
-### Summary of Results
-
-1. **Completion Rate Hypothesis**: The Test group has a higher completion rate, but further statistical testing is needed to confirm significance.
-2. **Cost-Effectiveness Hypothesis**: The increase in completion rate is above 5%, suggesting cost-effectiveness, but statistical significance is not confirmed.
-3. **Engagement Hypothesis**: The Test group has shorter session durations, indicating no increase in engagement. The t-test confirms this result is not statistically significant.
-4. **Task Efficiency Hypothesis**: The Test group has a higher error rate, and the Chi-Square test confirms this is statistically significant, suggesting the new UI design is less efficient.
-
 ## Conclusion
 
 The decision on which website is better depends on the specific priorities of Vanguard Investment Management Group:
@@ -133,3 +127,11 @@ If higher completion rates are the primary goal, the new UI is better as it sign
 If minimizing user errors and ensuring a smooth process is more important, the traditional UI might be preferred due to its lower error rate.
 If efficiency in terms of time spent is a key criterion, the new UI shows improvements in most steps but needs refinement in the final confirmation step.
 To definitively conclude which website is better, further analysis and possibly iterative improvements to the new UI to reduce error rates would be necessary. Balancing these factors based on Vanguard's strategic goals will determine the best approach.
+
+## Presentation 
+https://www.canva.com/design/DAGMmaYZr6g/qpERRTuj69-TA0QzIWLXkA/view?utm_content=DAGMmaYZr6g&utm_campaign=designshare&utm_medium=link&utm_source=editor
+
+## Connect With Us
+Dalreen Soares- https://www.linkedin.com/in/dalreen-soares/
+Lasma Oficiere
+Josep de Marti
