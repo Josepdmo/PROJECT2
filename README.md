@@ -9,9 +9,10 @@
 4. [Data Sources](#data-sources)
 5. [Data Preparation & Merging Datasets](#data-preparation-&-merging-datasets)
 6. [Hypotheses](#hypotheses)
-    - [Completion Rate Analysis](#completion-rate-analysis)
-    - [Error Rates Analysis](#error-rates-analysis)
-    - [Session Duration Analysis](#session-duration-analysis)
+    - [Completion Rate Hypothesis](#completion-rate-hypothesis)
+    - [Cost-Effectiveness Hypothesis](#cost-effectiveness-hypothesis)
+    - [Engagement Hypothesis](#engagement-hypothesis)
+    - [Task Efficiency Hypothesis](#task-efficiency-hypothesis)
 7. [Key Findings](#key-findings)
 8. [Conclusion](#conclusion)
 
@@ -35,18 +36,18 @@ pandas numpy seaborn matplotlib.pyplot scipy.stats
 
 ## Data Sources
 We will use three datasets for this analysis:
-Client Profiles ("data/df_final_demo.txt"): Contains demographics such as age, gender, and account details of Vanguard clients.
-Digital Footprints ("data/df_final_web_data_pt_1.txt"), ("data/df_final_web_data_pt_2.txt"): Detailed trace of client interactions online, divided into two parts: pt_1 and pt_2. These need to be merged for comprehensive analysis.
-Experiment Roster ("data/df_final_experiment_clients.txt"): Identifies which clients participated in the experiment and their group allocation (Control or Test).
+- Client Profiles ("data/df_final_demo.txt"): Contains demographics such as age, gender, and account details of Vanguard clients.
+- Digital Footprints ("data/df_final_web_data_pt_1.txt"), ("data/df_final_web_data_pt_2.txt"): Detailed trace of client interactions online, divided into two parts: pt_1 and pt_2. These need to be merged for comprehensive analysis.
+- Experiment Roster ("data/df_final_experiment_clients.txt"): Identifies which clients participated in the experiment and their group allocation (Control or Test).
 
 ## Data Preparation & Merging Datasets
-Merge Digital Footprints: Combine pt_1 and pt_2 from the df_final_web_data dataset to form a complete view of client interactions.
-Join Datasets: Integrate the merged digital footprints with the client profiles (df_final_demo) and the experiment roster (df_final_experiment_clients).
+- Merge Digital Footprints: Combine pt_1 and pt_2 from the df_final_web_data dataset to form a complete view of client interactions.
+- Join Datasets: Integrate the merged digital footprints with the client profiles (df_final_demo) and the experiment roster (df_final_experiment_clients).
+- Univariate Analysis and Visualisation: Understand the demographics and perform statistical analysis on each variable.
 
 ## Data Cleaning
-Handle Missing Values: Identify and appropriately handle any missing values in the datasets.
-Data Transformation: Ensure all data types are correct and any necessary transformations (e.g., date formats) are applied.
-Outlier Detection: Detect and handle outliers that could skew the analysis.
+1) Dropping Null Values: Identify and appropriately drop any missing values in the datasets.
+3) Outlier Detection: Detect and handle outliers that could skew the analysis.
 
 ### 1. Completion Rate Hypothesis
 
@@ -56,12 +57,12 @@ Outlier Detection: Detect and handle outliers that could skew the analysis.
 **Results**:
 - Control group completion rate: 49.84%
 - Test group completion rate: 58.52%
-- The Z-Statistic is -22.89, and the P-Value is extremely small (5.39e-116), which is much less than the alpha level of 0.05.
+- The Z-Statistic is -22.89, and the p-value is extremely small (5.39e-116), which is much less than the alpha level of 0.05.
 
 ![Completion Rate](https://github.com/Josepdmo/PROJECT2/blob/main/Images/Completion%20Rate.png)
   
 **Interpretation**:
-- Since the P-Value is significantly lower than 0.05, we reject the null hypothesis (H0) and accept the alternative hypothesis (H1).
+- Since the p-value is significantly lower than 0.05, we reject the null hypothesis (H0) and accept the alternative hypothesis (H1).
 - Conclusion: The completion rate of the new design (Test group) is statistically significantly higher than that of the old design (Control group).
 
 ### 2. Cost-Effectiveness Hypothesis
@@ -72,11 +73,14 @@ Outlier Detection: Detect and handle outliers that could skew the analysis.
 **Results**:
 - Control group completion rate: 49.84%
 - Test group completion rate: 58.52%
+- Z-Statistic: 22.89
+- P-Value : 0.0000
 
 ![Cost Effectiveness](https://github.com/Josepdmo/PROJECT2/blob/main/Images/Cost%20Effective%205%25%20Threshold.png)
 
 **Interpretation**:
-The increase in completion rate is approximately 8.68% ((58.52 - 49.84) / 49.84 * 100), which exceeds the 5% threshold. However, without a p-value or confidence interval, we can't confirm the statistical significance of this increase.
+- The increase in completion rate is approximately 8.68% ((58.52 - 49.84) / 49.84 * 100), which exceeds the 5% threshold. 
+- Based on the results of the z-test, we reject the null hypothesis, providing strong evidence that the new design leads to a completion rate increase confirming the new design's cost-effectiveness.
 
 ### 3. Engagement Hypothesis
 
@@ -121,14 +125,11 @@ The higher error rate in the Test group suggests the new UI leads to more user e
 3. **Engagement Hypothesis**: The Test group has shorter session durations, indicating no increase in engagement. The t-test confirms this result is not statistically significant.
 4. **Task Efficiency Hypothesis**: The Test group has a higher error rate, and the Chi-Square test confirms this is statistically significant, suggesting the new UI design is less efficient.
 
-### Additional Hypothesis (Session Duration T-Test)
+## Conclusion
 
-**H0**: There is no significant difference in session durations between the Test and Control groups.
-**H1**: There is a significant difference in session durations between the Test and Control groups.
+The decision on which website is better depends on the specific priorities of Vanguard Investment Management Group:
 
-**Results**:
-- t-statistic: -1.121
-- p-value: 0.262
-
-**Interpretation**:
-With a p-value of 0.262, which is greater than 0.05, we fail to reject the null hypothesis. There is no significant difference in session durations between the Test and Control groups.
+If higher completion rates are the primary goal, the new UI is better as it significantly improves this metric.
+If minimizing user errors and ensuring a smooth process is more important, the traditional UI might be preferred due to its lower error rate.
+If efficiency in terms of time spent is a key criterion, the new UI shows improvements in most steps but needs refinement in the final confirmation step.
+To definitively conclude which website is better, further analysis and possibly iterative improvements to the new UI to reduce error rates would be necessary. Balancing these factors based on Vanguard's strategic goals will determine the best approach.
