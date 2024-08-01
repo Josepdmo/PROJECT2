@@ -57,6 +57,8 @@ Outlier Detection: Detect and handle outliers that could skew the analysis.
 - Control group completion rate: 49.84%
 - Test group completion rate: 58.52%
 - The Z-Statistic is -22.89, and the P-Value is extremely small (5.39e-116), which is much less than the alpha level of 0.05.
+
+![Completion Rate](https://github.com/Josepdmo/PROJECT2/blob/main/Images/Completion%20Rate.png)
   
 **Interpretation**:
 - Since the P-Value is significantly lower than 0.05, we reject the null hypothesis (H0) and accept the alternative hypothesis (H1).
@@ -70,6 +72,8 @@ Outlier Detection: Detect and handle outliers that could skew the analysis.
 **Results**:
 - Control group completion rate: 49.84%
 - Test group completion rate: 58.52%
+
+![Cost Effectiveness](https://github.com/Josepdmo/PROJECT2/blob/main/Images/Cost%20Effective%205%25%20Threshold.png)
 
 **Interpretation**:
 The increase in completion rate is approximately 8.68% ((58.52 - 49.84) / 49.84 * 100), which exceeds the 5% threshold. However, without a p-value or confidence interval, we can't confirm the statistical significance of this increase.
@@ -88,6 +92,8 @@ The increase in completion rate is approximately 8.68% ((58.52 - 49.84) / 49.84 
 | Step 3  | 38,168.53                | 20,870.51             | -6.23       | 1.000000  |
 | Confirm | 250,213.99               | 266,014.22            | 1.00        | 0.157563  |
 
+![Average Time Spent](https://github.com/Josepdmo/PROJECT2/blob/main/Images/Average%20Time%20-%20Engagement.png)
+
 **Interpretation**:
 - For steps "start", "step_1", "step_2", and "step_3", the new UI resulted in significantly shorter session durations compared to the old UI, supporting the null hypothesis (H0).
 - For the "confirm" step, there was no significant difference in session durations between the new and old UIs.
@@ -102,6 +108,8 @@ The increase in completion rate is approximately 8.68% ((58.52 - 49.84) / 49.84 
 - Control group error rate: 6.77%
 - Test group error rate: 9.19%
 - Chi-Square Test: Chi2 = 625.11, p-value < 0.05
+
+![Error Rates](https://github.com/Josepdmo/PROJECT2/blob/main/Images/Error%20Rates%20-Task%20Efficiency.png)
 
 **Interpretation**:
 The higher error rate in the Test group suggests the new UI leads to more user errors. The Chi-Square test shows a very small p-value, indicating the difference in error rates is statistically significant. Therefore, we reject the null hypothesis, confirming the Test group has higher error rates, suggesting that the new UI is less efficient.
