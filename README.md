@@ -89,20 +89,22 @@ We will use three datasets for this analysis:
 **H1**: The session durations of clients using the new UI are longer than those using the old UI.
 
 **Results** (average session duration in seconds):
-| Step    | Control Avg Duration (s) | Test Avg Duration (s) | t-statistic | p-value   |
-|---------|--------------------------|-----------------------|-------------|-----------|
-| Start   | 78,598.63                | 65,390.81             | -4.35       | 0.999993  |
-| Step 1  | 38,631.85                | 28,503.09             | -4.06       | 0.999975  |
-| Step 2  | 18,786.24                | 12,545.78             | -3.43       | 0.999694  |
-| Step 3  | 38,168.53                | 20,870.51             | -6.23       | 1.000000  |
-| Confirm | 250,213.99               | 266,014.22            | 1.00        | 0.157563  |
+| Step    | Control Avg Duration (s) | Test Avg Duration (s) | t-statistic | p-value      |
+|---------|--------------------------|-----------------------|-------------|--------------|
+| Start   | 54.335477                | 61.809148             | -4.25       | 2.060898e-05 |
+| Step 1  | 42.568871                | 37.394860             | 6.74        | 1.496968e-11 |
+| Step 2  | 38.524249                | 47.820970             | -13.24      | 5.650431e-40 |
+| Step 3  | 92.515996                | 95.863682             | -3.073      | 2.117474e-03 |
+| Confirm | 122.694765               | 111.959636            | 5.29        | 1.225098e-07 |
+
 
 ![Average Time Spent](https://github.com/Josepdmo/PROJECT2/blob/main/Images/Average%20Time%20-%20Engagement.png)
 
 **Interpretation**:
-- For steps "start", "step_1", "step_2", and "step_3", the new UI resulted in significantly shorter session durations compared to the old UI, supporting the null hypothesis (H0).
-- For the "confirm" step, there was no significant difference in session durations between the new and old UIs.
-- Overall, the new UI appears to be more efficient, reducing session durations for most steps.
+- The new UI significantly increased session durations at the "Start" and "Step 2" stages,indicating reduced efficiency at these points.
+- For "Step 1" and "Confirm", the new UI resulted in significantly shorter durations, suggesting improved efficiency in these stages.
+- While the new UI shows potential benefits in "Step 1" and "Confirm", it also introduces inefficiencies in "Start" and "Step 2".
+- Further refinement is needed to address the observed issues and enhance overall user experience.
 
 ### 4. Task Efficiency Hypothesis
 
