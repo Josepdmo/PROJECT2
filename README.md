@@ -38,18 +38,18 @@ pandas numpy seaborn matplotlib.pyplot scipy.stats
 
 ## Data Sources
 We will use three datasets for this analysis:
-- Client Profiles ("data/df_final_demo.txt"): Contains demographics such as age, gender, and account details of Vanguard clients.
-- Digital Footprints ("data/df_final_web_data_pt_1.txt"), ("data/df_final_web_data_pt_2.txt"): Detailed trace of client interactions online, divided into two parts: pt_1 and pt_2. These need to be merged for comprehensive analysis.
-- Experiment Roster ("data/df_final_experiment_clients.txt"): Identifies which clients participated in the experiment and their group allocation (Control or Test).
+- **Client Profiles** ("data/df_final_demo.txt"): Contains demographics such as age, gender, and account details of Vanguard clients.
+- **Digital Footprints** ("data/df_final_web_data_pt_1.txt"), ("data/df_final_web_data_pt_2.txt"): Detailed trace of client interactions online, divided into two parts: pt_1 and pt_2. These need to be merged for comprehensive analysis.
+- **Experiment Roster** ("data/df_final_experiment_clients.txt"): Identifies which clients participated in the experiment and their group allocation (Control or Test).
 
 ## Data Preparation & Merging Datasets
-- Merge Digital Footprints: Combine pt_1 and pt_2 from the df_final_web_data dataset to form a complete view of client interactions.
-- Join Datasets: Integrate the merged digital footprints with the client profiles (df_final_demo) and the experiment roster (df_final_experiment_clients).
-- Univariate Analysis and Visualisation: Understand the demographics and perform statistical analysis on each variable.
+- **Merge Digital Footprints**: Combine pt_1 and pt_2 from the df_final_web_data dataset to form a complete view of client interactions.
+- **Join Datasets**: Integrate the merged digital footprints with the client profiles (df_final_demo) and the experiment roster (df_final_experiment_clients).
+- **Univariate Analysis and Visualisation**: Understand the demographics and perform statistical analysis on each variable.
 
 ## Data Cleaning
-1) Dropping Null Values: Identify and appropriately drop any missing values in the datasets.
-3) Outlier Detection: Detect and handle outliers that could skew the analysis.
+1) **Dropping Null Values**: Identify and appropriately drop any missing values in the datasets.
+3) **Outlier Detection**: Detect and handle outliers that could skew the analysis.
 
 ### 1. Completion Rate Hypothesis
 
